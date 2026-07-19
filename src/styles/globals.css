@@ -34,8 +34,8 @@ a, button,
 .kq-map, .kq-map .name, .kq-region, .kq-connect-mini, .kq-nav a,
 .kq-seg > button, .kq-lb-row, .kq-live {
   transition:
-    background-color .18s ease, color .18s ease, border-color .18s ease,
-    box-shadow .18s ease, opacity .25s ease, transform .18s ease;
+    background-color .12s ease, color .12s ease, border-color .12s ease,
+    box-shadow .12s ease, opacity .15s ease, transform .1s ease;
 }
 .kq-btn:hover:not(:disabled), .kq-connect-mini:hover { transform: translateY(-1px); }
 .kq-btn:active:not(:disabled), .kq-connect-mini:active { transform: translateY(0); }
@@ -45,9 +45,9 @@ a, button,
 .kq-map.banned, .kq-region.banned { transition: opacity .35s ease, background-color .35s ease; }
 
 /* pages & panels ease in */
-main { animation: kq-fade-up .35s ease both; }
-aside { animation: kq-fade-in .3s ease both; }
-.kq-msg { animation: kq-fade-up .22s ease both; }
+main { animation: kq-fade-up .2s ease both; }
+aside { animation: kq-fade-in .16s ease both; }
+.kq-msg { animation: kq-fade-up .16s ease both; }
 .kq-turnstrip { animation: kq-fade-in .3s ease both; }
 
 @media (prefers-reduced-motion: reduce) {

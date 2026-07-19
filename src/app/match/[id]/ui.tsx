@@ -61,11 +61,6 @@ export function MatchClient({
     refetch();
   }, [refetch]);
 
-  // clock for countdowns
-  useEffect(() => {
-    const t = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(t);
-  }, []);
 
   // Realtime: chat appends + any state change triggers a refetch.
   useEffect(() => {
@@ -102,6 +97,14 @@ export function MatchClient({
   useEffect(() => {
     if (deadlineMs && now > deadlineMs + 1500) refetch();
   }, [now, deadlineMs, refetch]);
+
+  // Tick once per second ONLY while a countdown is active — otherwise the whole
+  // match view would re-render every second and make button taps feel laggy.
+  useEffect(() => {
+    if (!deadlineMs) return;
+    const t = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(t);
+  }, [deadlineMs]);
 
   const act = useCallback(async (payload: Record<string, unknown>) => {
     setErr(null);
