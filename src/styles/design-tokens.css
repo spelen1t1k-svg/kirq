@@ -1,0 +1,91 @@
+/* KIRQ (kirka pugs) — design tokens
+   Dark competitive console + Kirka voxel DNA. Single accent: amber. */
+:root {
+  /* Color — background layers */
+  --kq-bg-0: #0B0D10;        /* page background */
+  --kq-bg-1: #0E1116;        /* bars, panels */
+  --kq-surface: #12161D;     /* cards */
+  --kq-surface-2: #171D26;   /* selected / raised card fill */
+  --kq-line: #262E3A;        /* default border */
+  --kq-line-2: #303A48;      /* input border */
+  --kq-line-soft: #1B212B;   /* row dividers */
+
+  /* Color — text */
+  --kq-text: #E9EDF3;
+  --kq-text-mut: #8B95A4;
+  --kq-text-dim: #5C6675;
+
+  /* Color — accent (the ONLY bright brand color) */
+  --kq-accent: #FFB800;
+  --kq-accent-hi: #FFD23F;      /* hover */
+  --kq-accent-ink: #0B0D10;     /* text on accent */
+  --kq-accent-deep: #5A4200;    /* sublabel on accent */
+  --kq-accent-line: #3A3323;    /* accent-tinted border */
+  --kq-accent-tint: #161408;    /* accent-tinted surface */
+  --kq-accent-tint-2: #100E06;
+
+  /* Color — semantic */
+  --kq-win: #3DDC84;
+  --kq-loss: #FF4655;
+  --kq-loss-line: #55303A;
+  --kq-loss-tint: #170B0E;
+  --kq-discord: #5865F2;
+
+  /* Color — rank groups */
+  --kq-rank-1: #8B95A4;      /* level 1 */
+  --kq-rank-2-3: #2FBFA8;    /* levels 2–3 (kirka voxel teal) */
+  --kq-rank-4-7: #FFB800;    /* levels 4–7 */
+  --kq-rank-8-9: #FF7A1A;    /* levels 8–9 */
+  --kq-rank-10: #FF4655;     /* level 10 */
+  --kq-rank-chal: #FFD23F;   /* challenger (top-10, shows #place) */
+
+  /* Type */
+  --kq-font-ui: 'Rajdhani', sans-serif;        /* 500/600/700 */
+  --kq-font-mono: 'JetBrains Mono', monospace; /* 400/500/700 — elo, timers, codes, labels */
+  --kq-fs-display: 72px;   /* landing hero, 700, ls .01em */
+  --kq-fs-h1: 44px;
+  --kq-fs-h2: 28px;        /* screen titles, ls .06em */
+  --kq-fs-h3: 18px;
+  --kq-fs-body: 15px;      /* Rajdhani 500, lh 1.5 */
+  --kq-fs-small: 13px;
+  --kq-fs-mono: 12px;      /* mono meta */
+  --kq-fs-label: 10px;     /* mono section labels, ls .2em, UPPERCASE */
+  --kq-ls-wide: .16em;     /* button labels */
+  --kq-ls-label: .2em;
+
+  /* Space (4px base) */
+  --kq-sp-1: 4px;
+  --kq-sp-2: 8px;
+  --kq-sp-3: 12px;
+  --kq-sp-4: 16px;
+  --kq-sp-5: 20px;
+  --kq-sp-6: 28px;
+  --kq-sp-7: 36px;
+  --kq-sp-8: 48px;
+
+  /* Radius — voxel style: NO rounded corners */
+  --kq-radius: 0;
+  /* Signature corner instead of radius: chamfer via clip-path */
+  --kq-chamfer-s: 8px;
+  --kq-chamfer-m: 12px;
+  --kq-chamfer-l: 16px;
+
+  /* Effects */
+  --kq-glow-accent: 0 0 20px rgba(255,184,0,.3);
+  --kq-shadow-card: 0 2px 24px rgba(0,0,0,.55);
+  --kq-grid-bg: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  --kq-grid-size: 24px 24px;
+  --kq-stripes: repeating-linear-gradient(45deg, #0F1218 0 12px, #12161D 12px 24px);
+
+  /* Layout */
+  --kq-topbar-h: 60px;
+  --kq-host-panel-w: 430px;
+  --kq-hit-min: 44px;      /* min touch target on mobile */
+}
+
+/* Chamfer helpers (buttons cut bottom-right, cards cut top-right) */
+.kq-chamfer-btn  { clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--kq-chamfer-m)), calc(100% - var(--kq-chamfer-m)) 100%, 0 100%); }
+.kq-chamfer-card { clip-path: polygon(0 0, calc(100% - var(--kq-chamfer-l)) 0, 100% var(--kq-chamfer-l), 100% 100%, 0 100%); }
+/* Hex rank badge */
+.kq-hex { clip-path: polygon(50% 0, 95% 26%, 95% 74%, 50% 100%, 5% 74%, 5% 26%); }
